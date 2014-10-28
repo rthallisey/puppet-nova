@@ -31,6 +31,7 @@ class nova::params {
       $conductor_service_name       = 'openstack-nova-conductor'
       $consoleauth_service_name     = 'openstack-nova-consoleauth'
       $libvirt_service_name         = 'libvirtd'
+      $ironic_service_name          = 'openstack-ironic-conductor'
       $network_service_name         = 'openstack-nova-network'
       $objectstore_service_name     = 'openstack-nova-objectstore'
       $scheduler_service_name       = 'openstack-nova-scheduler'
@@ -41,7 +42,7 @@ class nova::params {
       $root_helper                  = 'sudo nova-rootwrap'
       $lock_path                    = '/var/lib/nova/tmp'
       case $::operatingsystem {
-        'Fedora': {
+        'Fedora', 'RedHat': {
           $special_service_provider = undef
         }
         'RedHat', 'CentOS', 'Scientific': {
