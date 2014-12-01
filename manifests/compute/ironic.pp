@@ -47,12 +47,12 @@ class nova::compute::ironic (
   include nova::params
 
   nova_config {
-    'IRONIC/admin_username':            value => $admin_user;
-    'IRONIC/admin_password':            value => $admin_passwd;
-    'IRONIC/admin_url':                 value => $admin_url;
-    'IRONIC/admin_tenant_name':         value => $admin_tenant_name;
-    'IRONIC/api_endpoint':              value => $api_endpoint;
-    'DEFAULT/reserved_host_memory_mb ': value => $reserved_host_memory;
+    'ironic/admin_username':            value => $admin_user;
+    'ironic/admin_password':            value => $admin_passwd;
+    'ironic/admin_url':                 value => $admin_url;
+    'ironic/admin_tenant_name':         value => $admin_tenant_name;
+    'ironic/api_endpoint':              value => $api_endpoint;
+    'DEFAULT/reserved_host_memory_mb':  value => $reserved_host_memory;
     'DEFAULT/compute_driver':           value => 'nova.virt.ironic.IronicDriver';
     'DEFAULT/compute_manager':          value => 'ironic.nova.compute.manager.ClusteredComputeManager';
   }
