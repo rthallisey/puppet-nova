@@ -52,7 +52,7 @@ class nova::compute::ironic (
     'IRONIC/admin_url':                 value => $admin_url;
     'IRONIC/admin_tenant_name':         value => $admin_tenant_name;
     'IRONIC/api_endpoint':              value => $api_endpoint;
-    'DEFAULT/reserved_host_memory_mb ': value => $reserved_host_memory;
+    'DEFAULT/reserved_host_memory_mb':  value => $reserved_host_memory;
     'DEFAULT/compute_driver':           value => 'nova.virt.ironic.IronicDriver';
     'DEFAULT/compute_manager':          value => 'ironic.nova.compute.manager.ClusteredComputeManager';
   }
