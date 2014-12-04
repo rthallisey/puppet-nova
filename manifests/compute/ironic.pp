@@ -26,25 +26,23 @@
 #
 # [*api_endpoint*]
 #   Api endpoint
-#   The url for Iroinc api endpoint.
+#   The url for Ironic api endpoint.
 #   Defaults to 'http://127.0.0.1:6385/v1'
 #
 # [*reserved_host_memory*]
-#   Resereved host memory
+#   Reserved host memory
 #   The amount of memory in MB reserved for the host.
 #   Defaults to '0'
 #
 
 class nova::compute::ironic (
-  $admin_user = 'admin',
-  $admin_passwd = 'ironic',
-  $admin_url = 'http://127.0.0.1:35357/v2.0',
-  $admin_tenant_name = 'services',
-  $api_endpoint = 'http://127.0.0.1:6385/v1',
+  $admin_user           = 'admin',
+  $admin_passwd         = 'ironic',
+  $admin_url            = 'http://127.0.0.1:35357/v2.0',
+  $admin_tenant_name    = 'services',
+  $api_endpoint         = 'http://127.0.0.1:6385/v1',
   $reserved_host_memory = '0'
 ) {
-
-  include nova::params
 
   nova_config {
     'ironic/admin_username':            value => $admin_user;
