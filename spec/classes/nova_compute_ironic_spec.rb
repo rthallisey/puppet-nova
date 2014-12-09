@@ -7,9 +7,7 @@ describe 'nova::compute::ironic' do
     should contain_nova_config('ironic/admin_url').with_value('http://127.0.0.1:35357/v2.0')
     should contain_nova_config('ironic/admin_tenant_name').with_value('services')
     should contain_nova_config('ironic/api_endpoint').with_value('http://127.0.0.1:6385/v1')
-    should contain_nova_config('DEFAULT/reserved_host_memory_mb').with_value('0')
     should contain_nova_config('DEFAULT/compute_driver').with_value('nova.virt.ironic.IronicDriver')
-    should contain_nova_config('DEFAULT/compute_manager').with_value('ironic.nova.compute.manager.ClusteredComputeManager')
   end
 
 end
