@@ -73,6 +73,16 @@
 #   (optional) Force backing images to raw format.
 #   Defaults to true
 #
+#  [*reserved_host_memory*]
+#   Reserved host memory
+#   The amount of memory in MB reserved for the host.
+#   Defaults to '0'
+#
+#  [*compute_manager*]
+#   Compute manager
+#   The manager for nova compute
+#   Defaults to 'ironic.nova.compute.manager.ClusteredComputeManager'.
+#
 class nova::compute (
   $enabled                       = false,
   $manage_service                = true,
@@ -91,9 +101,16 @@ class nova::compute (
   $instance_usage_audit          = false,
   $instance_usage_audit_period   = 'month',
   $force_raw_images              = true,
+  $reserved_host_memory          = '0',
+  $compute_manager               = 'ironic.nova.compute.manager.ClusteredComputeManager',
 ) {
 
   include nova::params
+
+  nova_config {
+    'DEFAULT/reserved_host_memory_mb':  value => $reserved_host_memory;
+    'DEFAULT/compute_manager':          value => $compute_manager;
+  }
 
   if ($vnc_enabled) {
     if ($vncproxy_host) {
