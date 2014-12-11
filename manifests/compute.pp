@@ -80,8 +80,8 @@
 #
 #  [*compute_manager*]
 #   Compute manager
-#   The manager for nova compute
-#   Defaults to 'ironic.nova.compute.manager.ClusteredComputeManager'.
+#   The manager for nova compute.
+#   Defaults to nova.compute.manager.ComputeManager
 #
 class nova::compute (
   $enabled                       = false,
@@ -102,7 +102,7 @@ class nova::compute (
   $instance_usage_audit_period   = 'month',
   $force_raw_images              = true,
   $reserved_host_memory          = '0',
-  $compute_manager               = 'ironic.nova.compute.manager.ClusteredComputeManager',
+  $compute_manager               = 'nova.compute.manager.ComputeManager',
 ) {
 
   include nova::params
