@@ -40,11 +40,13 @@ describe 'nova::compute' do
 
     context 'with overridden parameters' do
       let :params do
-        { :enabled            => true,
-          :ensure_package     => '2012.1-2',
-          :vncproxy_host      => '127.0.0.1',
-          :network_device_mtu => 9999,
-          :force_raw_images   => false }
+        { :enabled              => true,
+          :ensure_package       => '2012.1-2',
+          :vncproxy_host        => '127.0.0.1',
+          :network_device_mtu   => 9999,
+          :force_raw_images     => false,
+          :reserved_host_memory => '0',
+          :compute_manager      => 'ironic.nova.compute.manager.ClusteredComputeManager'}
       end
 
       it 'installs nova-compute package and service' do
