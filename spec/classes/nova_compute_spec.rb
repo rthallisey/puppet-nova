@@ -62,8 +62,8 @@ describe 'nova::compute' do
       end
 
       it 'configures ironic in nova.conf' do
-        should contain_nova_config('DEFAULT/reserved_host_memory_mb').with_value('0')
-        should contain_nova_config('DEFAULT/compute_manager').with_value('ironic.nova.compute.manager.ClusteredComputeManager')
+        should contain_nova_config('DEFAULT/reserved_host_memory_mb').with_value('512')
+        should contain_nova_config('DEFAULT/compute_manager').with_value('nova.compute.manager.ComputeManager')
       end
 
       it 'configures network_device_mtu' do

@@ -76,11 +76,11 @@
 #  [*reserved_host_memory*]
 #   Reserved host memory
 #   The amount of memory in MB reserved for the host.
-#   Defaults to '0'
+#   Defaults to '512'
 #
 #  [*compute_manager*]
 #   Compute manager
-#   The manager for nova compute.
+#   The driver that will manage the running instances.
 #   Defaults to nova.compute.manager.ComputeManager
 #
 class nova::compute (
@@ -101,7 +101,7 @@ class nova::compute (
   $instance_usage_audit          = false,
   $instance_usage_audit_period   = 'month',
   $force_raw_images              = true,
-  $reserved_host_memory          = '0',
+  $reserved_host_memory          = '512',
   $compute_manager               = 'nova.compute.manager.ComputeManager',
 ) {
 
